@@ -104,7 +104,11 @@ class WebDriverKeys {
         // handle modified keys
         $key = implode('', $key).self::NULL;
       }
-      $encoded = array_merge($encoded, str_split((string)$key));
+
+      if(is_string($key))
+        $encoded = array_merge($encoded, str_split((string)$key));
+      else
+        $encoded[] = $key;
     }
 
     return $encoded;
